@@ -1,0 +1,195 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Ice Fish</title>
+
+<link rel="stylesheet" href="icefish.css">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800,700' rel='stylesheet' type='text/css'>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+<script type="text/javascript" src="./js/icefish.js"></script>
+<script type="text/javascript" src="./js/game.js"></script>
+<script type="text/javascript" src="./js/player.js"></script>
+<script type="text/javascript" src="./js/fish.js"></script>
+<script type="text/javascript" src="./js/fish-factory.js"></script>
+<script type="text/javascript" src="./js/cast.js"></script>
+
+
+
+  <script>
+  $(function() {
+    $( document ).tooltip();
+  });
+  </script>
+  
+  
+</head>
+
+
+
+
+
+
+
+<body>
+
+	<div id="Container">
+		<div class="character-bar-container">
+			<div class="character-bar">
+				<div class="name">
+					<span class="label">Name: </span>
+					<span class="value"></span>
+				</div>
+				<div class="age">
+					<span class="label">Age: </span>
+					<span class="value"></span>
+				</div>						
+				<div class="weight">
+					<span class="label">Weight: </span>
+					<span class="value"></span>
+				</div>		
+				<div class="level">
+					<span class="label">Level: </span>
+					<span class="value">0</span>
+				</div>		
+				<div class="xp">
+					<span class="label">Loot: $</span>
+					<span class="value">0</span>
+				</div>		
+			</div>
+
+		</div>
+		<div class="status-bar-container">	
+			<div class="status-bar">
+				<div class="focus">
+					<span class="label">Focus: </span>
+					<span class="value"></span>
+				</div>
+				<div class="body-temp">
+					<span class="label">Body Temp: </span>
+					<span class="value"></span>
+				</div>
+				<div class="hunger">
+					<span class="label">Hunger: </span>
+					<span class="value"></span>
+				</div>				
+			</div>		
+		</div>
+			
+		<div class="main-container"> 
+			<div class="left">
+				<div class="vertical-stuff">
+
+					<div class="livewell row-2">
+						<h2 class="headline">Livewell</h2>
+						<div class="the-fish"></div>
+					</div>
+					<div class="stuff row-2">
+						<h2 class="headline">You are...</h2>
+						<div class="the-stuff">
+			
+
+						
+						</div>
+					</div>							
+
+				</div>
+							
+			</div> <!-- /left -->
+			
+			<div class="middle">
+				<div class="fishing-hole">		
+					<h2 class="headline">Fishing hole</h2>
+					<div class="hole">
+						<div class="value"></div>
+					</div>
+				</div>
+				<div class="controls">
+					<input id="CastButton" type="submit" class="button" value="Cast">
+					<input id="SetHookButton" type="submit" class="button" value="Set hook">
+					<input id="ReelInButton" type="submit" class="button" value="Reel in">		
+				</div>			
+				<div class="stats">
+					<h2 class="headline">Stats</h2>
+					<div class="casts">
+						<span class="label">Casts: </span>
+						<span class="value">0</span>
+					</div>
+					<div class="bites">
+						<span class="label">Bites: </span>
+						<span class="value">0</span>
+					</div>				
+					<div class="fish-on">
+						<span class="label">Fish on: </span>
+						<span class="value">0</span>
+					</div>
+					<div class="fish-lost">
+						<span class="label">Fish lost: </span>
+						<span class="value">0</span>
+					</div>
+					<div class="fish-caught">
+						<span class="label">Fish caught: </span>
+						<span class="value">0</span>
+					</div>						
+				</div>				
+			</div>
+			
+			<div class="right">
+				<div class="level-message"><div class="value"></div></div>
+				<div class="outcome-message"><div class="value"></div></div>				
+				<div class="status"><div class="value">You haven't done anything yet</div></div>
+				<div class="casts-list"></div>		
+			</div>
+
+			
+		</div>
+		
+
+		
+	</div>
+
+	
+	<!-- start screen -->
+	<div id="StartScreenContainer">
+		<div id="StartScreen">
+			<h2>Enter your stuff</h2>
+			<div class="item">
+				<label for="Name">Name</label>
+				<input id="Name" type="text" name="name">
+			</div>
+			<div class="item">			
+				<label for="Weight">Weight</label>
+				<input id="Weight" type="text" name="weight">
+			</div>
+			<div class="item">
+				<label for="Age">Age</label>
+				<input id="Age" type="text" name="age">
+			</div>
+			<div class="item">			
+				<label for="Gender">Gender</label>
+				<select id="Gender" name="gender">
+					<option value="male">Male</option>
+					<option value="female">Female</option>					
+				</select>
+			</div>
+			<input id="StartScreenStuff" type="submit">
+		</div>
+	</div>
+	<!-- /start screen -->	
+	
+</body>
+
+</html>
+
+
+
+
+
+
+
+

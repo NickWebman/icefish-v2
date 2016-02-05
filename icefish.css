@@ -1,0 +1,544 @@
+
+
+* { 
+	font-family: 'Open Sans', sans-serif;
+}
+
+body { 
+	margin: 0;
+	font-size: 12px;
+}
+
+h2 {
+	margin: 0;
+}
+
+h2.headline {
+	font-weight: 800;
+    font-size: 18px;
+    text-transform: uppercase;	
+    color: #999;
+}
+
+.left h2.headline {
+	float: left;
+    margin: 4px 20px 0 0;	
+}
+
+.right h2.headline {
+	margin: 0 0 10px 0;
+}
+
+.left {
+	float: left;
+	width: 400px;
+
+}
+
+.middle {
+	float: left;
+	width: 200px;
+}
+
+.right {
+	float: left;
+	width: 400px;
+}
+
+#StartScreenContainer {
+	display: none;
+	background: rgba(25, 25, 25, 0.5);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+#StartScreen {
+    padding: 20px 30px;
+    margin: 5% auto 0 auto;
+    width: 225px;
+    height: 216px;
+    background: #fff;
+}
+
+#StartScreen label {
+	width: 56px;
+    display: inline-block;
+}
+
+#StartScreen h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    letter-spacing: -2px;
+}
+
+#StartScreen .item {
+	margin: 5px 0 5px 0;
+}
+
+#StartScreen .item #Gender {
+	width: 160px;
+}
+
+#StartScreen #StartScreenStuff {
+	float: right;
+	margin: 15px 6px 0 0;
+	color: #0084ff;
+}
+
+.character-bar-container, .status-bar-container {
+	
+}
+
+.character-bar {
+	padding: 10px 0;
+	width: 1000px;
+	background: #333;
+	color: #eee;
+	margin: 0 auto;
+	overflow: auto;
+}
+
+.status-bar {
+	padding: 10px 0;
+	clear: both;
+	width: 1000px;	
+	background: #666;
+	color: #eee;
+	margin: 0 auto 15px auto;
+	overflow: auto;	
+}
+
+.character-bar div.level { float: right; }
+.character-bar div.xp { float: right; }
+
+.main-container {
+	width: 1000px;	
+	margin: 0 auto;
+}
+
+.character-bar div {
+	float: left;
+	padding: 0 15px;
+	border-right: 1px dotted #666;
+}
+
+.status-bar div {
+	float: left;
+	padding: 0 15px;
+	border-right: 1px dotted #999;
+}
+
+.character-bar div:last-child, .status-bar div:last-child {
+	border-right: none;
+}
+
+.button-stuff {
+	width: 125px;
+	margin: 50px auto;
+}
+
+.button-stuff  img {
+	width: 125px;
+	height: auto;
+}
+
+.controls {
+    margin-left: 16px;
+}
+
+.controls input {
+	margin-right: 2px;
+	color: #0084ff;
+}
+
+.controls input:disabled {
+	color: #bbb;
+}
+
+
+.box {
+	padding: 15px;
+	height: 35px;
+}
+
+.vertical-stuff {
+    margin: 0 0 15px 0;
+}	
+
+.level-message  {
+	margin-left: 15px;
+}
+
+.level-message .value .inner  {
+    color: #333;
+    margin: 10px 0 10px 0;
+    font-weight: 400;
+}
+
+.level-message .value .answers a {
+    color: #333;
+	display: block;
+	cursor: pointer;
+}
+
+.level-message .value .answers a:hover {
+	color: #999;
+}
+
+.level-message .value .answers a span {
+	color: #0084ff;
+	font-weight: 700;
+}
+
+.level-message .value {
+	display: none;
+	font-size: 12px;
+	font-weight: 800;
+	vertical-align: center;
+	color: #0084ff;
+	padding: 15px;
+}
+
+.outcome-message .value {
+	display: none;
+	font-size: 12px;
+	font-weight: 400;
+	color: #333;
+	margin: 0 0 15px 15px;
+}
+
+.fishing-hole {
+	background: #eee;
+	padding: 15px 15px;
+	height: 200px;
+	margin: 0 0 15px 15px;
+}
+
+.level-message .value .answers input:disabled {
+	color: #ccc;
+}
+
+
+
+/*
+.level-message .value .answers a:not(.active) {
+	color: #ccc;
+}
+
+.level-message .value .answers a:not(.active) span {
+	color: #ccc;
+}*/
+
+
+.status .value input {
+	display: block;
+	display: none;
+	margin-top: 15px;
+	color: #0084ff;
+	
+}
+
+.stats {
+	background: #ddd;
+	padding: 15px 15px;
+	height: 200px;
+	margin: 15px 0 15px 15px;
+}
+
+.status {
+	background: #c4e3ff;
+	margin: 0 0 0 15px;
+	padding: 15px;
+}
+
+.status .value {
+	
+}
+
+.status div:first-letter {
+	text-transform: uppercase;
+}
+
+.stats h2.headline {
+	margin-bottom: 10px;
+}
+
+.gear {
+	background: #ddd;
+}
+.bait {
+	background: #eee;
+}
+.items {
+	background: #ddd;
+}
+.livewell {
+	background: #ddd;
+	padding: 15px;
+}
+
+.stuff {
+	background: #eee;
+	padding: 15px;
+	margin-top: 15px;
+	overflow: auto;
+}
+
+.stuff .the-stuff {
+	clear: both;
+    padding-top: 10px;
+}
+
+.stuff .the-stuff span.value {
+	font-weight: 700;
+}
+
+.livewell .the-fish {
+    padding: 0 15px 0 1px;
+    margin: 40px 0 0 0;
+	overflow: auto;
+}
+
+.livewell .the-fish .fish {
+	background: url(images/fish.png) no-repeat;
+	background-size: 100%;
+	height: 21px;
+	width: 20px;
+	margin-right: 4px;
+	float: left;
+}
+
+
+.livewell .fish.xxs {
+	width: 10px;
+}
+
+.livewell .fish.xs {
+	width: 15px;
+}
+
+.livewell .fish.s {
+	width: 20px;
+}
+
+.livewell .fish.m {
+	width: 25px;
+}
+
+.livewell .fish.l {
+	width: 30px;
+}
+
+.livewell .fish.xl {
+	width: 35px;
+}
+
+.livewell .fish.xxl {
+	width: 40px;
+}
+
+.livewell .fish.xxxl {
+	width: 45px;
+}
+
+
+.something {
+	background: #ddd;
+}
+.der {
+	background: #eee;
+}
+
+.bait label:last-child {
+	margin-right: 0;
+}
+
+.casts-list {
+	margin: 15px 0 0 15px;
+    height: 377px;
+    overflow: hidden;	
+}
+
+.casts-list div {
+	padding: 5px 10px;
+}
+
+.casts-list div:nth-child(odd) {
+	background: #ddd;
+}
+
+.casts-list div:nth-child(even) {
+	background: #eee;
+}
+
+.xp .label {
+	margin-right: -3px;
+}
+
+.fishing-hole {
+	position: relative;
+	height: 125px;
+}
+
+.fishing-hole .hole {
+	background-image: url('images/fishing-hole.png');
+	background-size: 100px;
+	background-repeat: no-repeat;
+    width: 100px;
+    height: 17px;
+    position: absolute;
+    bottom: 20px;
+    left: 41px;
+}
+
+.fishing-hole .hole .value {
+	position: relative;
+	text-align: center;
+}
+
+.answers label {
+	display: block;
+	font-weight: 400;
+}
+
+.answers input[type=radio],.answers input[type=checkbox] {
+	display: inline-block;
+    top: 2px;
+    position: relative;
+    margin-left: 0;
+    margin-right: 6px;	
+}
+
+input[type=radio], input[type=checkbox] {
+	display: none;
+}
+ 
+input[type=radio] + label, input[type=checkbox] + label  {
+	background-repeat: no-repeat;
+	display:inline-block;
+	padding: 0 0 0 0px;
+	margin: 0 10px;
+}
+
+input[type=radio]:checked + label, input[type=checkbox]:checked + label  {
+	background-repeat: no-repeat;
+	display:inline-block;
+	padding: 0 0 0 0px;
+	margin: 0 10px;	
+}
+
+.bait input[type=radio]#worm + label {
+	background-image: url('images/worm.png');
+    width: 52px;
+    height: 33px;
+    margin-left: 0;
+    background-size: 52px;
+  
+}
+
+.bait input[type=radio]#worm:checked + label {
+	background-image: url('images/worm-on.png');
+    width: 52px;
+    height: 33px;
+    margin-left: 0;
+    background-size: 52px;
+}
+
+.bait input[type=radio]#minnow + label {
+	background-image: url('images/minnow.png');
+    width: 56px;
+    height: 33px;
+    background-size: 56px;
+}
+
+.bait input[type=radio]#minnow:checked + label {
+	background-image: url('images/minnow-on.png');
+    width: 56px;
+    height: 33px;
+    background-size: 56px;
+}
+
+.bait input[type=radio]#hotdog + label {
+	background-image: url('images/hotdog.png');
+    width: 37px;
+    height: 42px;
+    background-size: 37px;
+}
+
+.bait input[type=radio]#hotdog:checked + label {
+	background-image: url('images/hotdog-on.png');
+    width: 37px;
+    height: 42px;
+    background-size: 37px;
+}
+
+.gear input[type=checkbox]#ice-picks + label {
+	background-image: url('images/ice-picks.png');
+	width: 39px;
+	height: 35px;
+	margin-left: 0;
+  
+}
+
+.gear input[type=checkbox]#ice-picks:checked + label {
+	background-image: url('images/ice-picks-on.png');
+	width: 39px;
+	height: 35px;
+	margin-left: 0;
+}
+
+.gear input[type=checkbox]#tip-up + label {
+	background-image: url('images/tip-up.png');
+	width: 39px;
+	height: 35px;
+  
+}
+
+.gear input[type=checkbox]#tip-up:checked + label {
+	background-image: url('images/tip-up-on.png');
+	width: 39px;
+	height: 35px;
+}
+
+.gear input[type=checkbox]#high-test + label {
+	background-image: url('images/high-test.png');
+	width: 39px;
+	height: 35px;
+  
+}
+
+.gear input[type=checkbox]#high-test:checked + label {
+	background-image: url('images/high-test-on.png');
+	width: 39px;
+	height: 35px;
+}
+
+.items input[type=checkbox]#smoke + label {
+	background-image: url('images/smoke.png');
+	width: 40px;
+	height: 37px;
+	margin-left: 0;
+}
+
+.items input[type=checkbox]#smoke:checked + label {
+	background-image: url('images/smoke-on.png');
+	width: 40px;
+	height: 37px;
+	margin-left: 0;	
+}
+
+.items input[type=checkbox]#whiskey + label {
+	background-image: url('images/whiskey.png');
+    width: 27px;
+    height: 37px;
+  
+}
+
+.items input[type=checkbox]#whiskey:checked + label {
+	background-image: url('images/whiskey-on.png');
+    width: 27px;
+    height: 37px;
+}
