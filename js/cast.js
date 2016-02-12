@@ -12,7 +12,8 @@ CastFactory.prototype.createCast = function createACast() {
 	var castMath = Math.floor((Math.random() * 100) + 1);
 	
 	function getCastBite() {
-		if (castMath > 20) {
+		if (castMath > 10) {
+			biteCount++;
 			return true;
 		} else {	
 			return false;
@@ -39,7 +40,8 @@ SetHookFactory.prototype.createSetHook = function createASetHook() {
 	var setHookMath = Math.floor((Math.random() * 100) + 1);
 	
 	function getSetHook() {
-		if (setHookMath > 20) {
+		if (setHookMath > 10) {
+			fishOnCount++;		
 			return true;
 		} else {	
 			return false;
@@ -56,27 +58,29 @@ SetHookFactory.prototype.createSetHook = function createASetHook() {
 
 
 
-function FishOn(options) {
-	this.fishOn = options.fishOn;
+function FishLanded(options) {
+	this.fishLanded = options.fishLanded;
 }
 
-function FishOnFactory() {}
+function FishLandedFactory() {}
 
-FishOnFactory.prototype.createFishOn = function createAFishOn() {
+FishLandedFactory.prototype.createFishLanded = function createAFishLanded() {
 
-	var fishOnMath = Math.floor((Math.random() * 100) + 1);
+	var fishLandedMath = Math.floor((Math.random() * 100) + 1);
 	
-	function getFishOn() {
-		if (fishOnMath > 20) {
+	function getFishLanded() {
+		if (fishLandedMath > 10) {
+			fishLandedCount++;
 			return true;
-		} else {	
+		} else {
+			fishLostCount++;
 			return false;
 		}
 	}
-
+	
 	var options = {
-		fishOn: getFishOn()
+		fishLanded: getFishLanded()
 	};
 	
-	return new FishOn(options);
+	return new FishLanded(options);
 }

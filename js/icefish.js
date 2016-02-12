@@ -1,18 +1,20 @@
 
 
 
-
-
-	
-
-
+var aFish;
+var castCount = 0; 
+var biteCount = 0;
+var fishOnCount = 0;
+var fishLostCount = 0;
+var fishLandedCount = 0;
+var totalMoney = 0;
 
 
 $(document).ready(function() {
 
-	var aFish;
-	var castCount = 0; 
-
+	$("#CastButton").prop("disabled", false);
+	$("#SetHookButton").prop("disabled", true);
+	$("#ReelInButton").prop("disabled", true);
 
 	$("h2").click(function(){
 		$("#Name").val("Nick");
@@ -26,6 +28,9 @@ $(document).ready(function() {
 	$("#ReelInButton").prop("disabled", true);	*/		
 	
 	// start screen collects input player data
+	
+	/*
+	
 	if (!$("#StartScreenContainer").hasClass("done")){
 		$("#StartScreenContainer").show("slow");
 		$("#StartScreenStuff").click(function(){
@@ -42,7 +47,7 @@ $(document).ready(function() {
 			console.log(player1);
 
 		});
-	};		
+	};		*/
 	
 
 	// cast
@@ -54,9 +59,11 @@ $(document).ready(function() {
 		var aCastFactory = new CastFactory();
 		var aCast = aCastFactory.createCast();
 		console.log(aCast);
-		displayCast(aCast);
-		castCounter++;
 		
+		castCount++;		
+		
+		displayCast(aFish, aCast);
+				
 	});
 	
 	$("#SetHookButton").click(function (){
@@ -69,9 +76,17 @@ $(document).ready(function() {
 	});
 	
 	$("#ReelInButton").click(function (){
-		var aFishOnFactory = new FishOnFactory();
-		var aFishOn = aFishOnFactory.createFishOn();
-		console.log(aFishOn);			
+		var aFishLandedFactory = new FishLandedFactory();
+		var aFishLanded = aFishLandedFactory.createFishLanded();
+		console.log(aFishLanded);
+
+		var aCommentFactory = new CommentFactory();
+		var aComment = aCommentFactory.createComment(aFish, aFishLanded);		
+			
+		displayComment(aComment);
+		displayFishLanded(aFish, aFishLanded);
+		updateMoneyTotal(aFish, aFishLanded);
+		
 	});
 		
 	

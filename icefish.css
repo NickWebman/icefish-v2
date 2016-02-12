@@ -1,5 +1,120 @@
 
 
+.shit {
+	position: relative;
+}
+
+.level .value, .money .value {
+	font-weight: 800;
+}
+
+.shit .line {
+	width: 1px;
+	height: 0px;
+    top: 57px;
+    left: 76px;
+    position: absolute;	
+	background-color: #afafaf;
+
+}
+
+.shit .line.cast {
+    height: 45px;
+}
+
+.shit .fish {
+	background: url(images/fish2.png) no-repeat;
+	background-size: 100%;
+	height: 21px;
+	width: 20px;
+	position: absolute;
+	margin-left: 0;
+    top: 97px;
+    left: 0px;
+	transform: rotate(0deg);
+	transition: transform 0.3s, margin-left 0.3s;
+}
+
+
+
+/* I could have done this much better */
+
+.shit .fish.bite.xxs {
+	margin-left: 17px;
+}
+.shit .fish.bite.xs {
+	margin-left: 12px;
+}
+.shit .fish.bite.s {
+	margin-left: 7px;
+}
+.shit .fish.bite.m {
+	margin-left: 2px;
+}
+.shit .fish.bite.l {
+	margin-left: -3px;
+}
+.shit .fish.bite.xl {
+	margin-left: -7px;
+}
+.shit .fish.bite.xxl {
+    margin-left: -13px;
+}
+
+.shit .fish.bite.rotate-hooked {
+	transform: rotate(-45deg);
+}
+
+.shit .fish.bite.rotate-landed {
+	transform: rotate(-90deg);
+}
+
+.shit .fish.bite.xxs.rotate-landed {
+	margin-left: 28px;
+}
+.shit .fish.bite.xs.rotate-landed {
+	margin-left: 25px;
+}
+.shit .fish.bite.s.rotate-landed {
+	margin-left: 20px;
+}
+.shit .fish.bite.m.rotate-landed {
+	margin-left: 15px;
+}
+.shit .fish.bite.l.rotate-landed {
+	margin-left: 10px;
+}
+.shit .fish.bite.xl.rotate-landed {
+	margin-left: 7px;
+}
+.shit .fish.bite.xxl.rotate-landed {
+	margin-left: 3px;
+}
+
+.shit .fish.bite.xxs.rotate-hooked {
+	margin-left: 24px;
+}
+.shit .fish.bite.xs.rotate-hooked {
+	margin-left: 19px;
+}
+.shit .fish.bite.s.rotate-hooked {
+	margin-left: 13px;
+}
+.shit .fish.bite.m.rotate-hooked {
+	margin-left: 8px;
+}
+.shit .fish.bite.l.rotate-hooked {
+	margin-left: 3px;
+}
+.shit .fish.bite.xl.rotate-hooked {
+	margin-left: -3px;
+}
+.shit .fish.bite.xxl.rotate-hooked {
+	margin-left: -8px;
+}
+
+
+
 * { 
 	font-family: 'Open Sans', sans-serif;
 }
@@ -112,7 +227,7 @@ h2.headline {
 }
 
 .character-bar div.level { float: right; }
-.character-bar div.xp { float: right; }
+.character-bar div.money { float: right; }
 
 .main-container {
 	width: 1000px;	
@@ -211,7 +326,7 @@ h2.headline {
 }
 
 .fishing-hole {
-	background: #eee;
+	background: url('images/guy-fishing.png') no-repeat;
 	padding: 15px 15px;
 	height: 200px;
 	margin: 0 0 15px 15px;
@@ -302,7 +417,9 @@ h2.headline {
 	overflow: auto;
 }
 
-.livewell .the-fish .fish {
+
+
+.fish {
 	background: url(images/fish.png) no-repeat;
 	background-size: 100%;
 	height: 21px;
@@ -311,36 +428,35 @@ h2.headline {
 	float: left;
 }
 
-
-.livewell .fish.xxs {
+.fish.xxs {
 	width: 10px;
 }
 
-.livewell .fish.xs {
+.fish.xs {
 	width: 15px;
 }
 
-.livewell .fish.s {
+.fish.s {
 	width: 20px;
 }
 
-.livewell .fish.m {
+.fish.m {
 	width: 25px;
 }
 
-.livewell .fish.l {
+.fish.l {
 	width: 30px;
 }
 
-.livewell .fish.xl {
+.fish.xl {
 	width: 35px;
 }
 
-.livewell .fish.xxl {
+.fish.xxl {
 	width: 40px;
 }
 
-.livewell .fish.xxxl {
+.fish.xxxl {
 	width: 45px;
 }
 
@@ -374,9 +490,19 @@ h2.headline {
 	background: #eee;
 }
 
-.xp .label {
+.money .label {
 	margin-right: -3px;
 }
+
+.comment {
+	font-size: 10px;
+	position: absolute;
+	top: 15px;
+	left: 15px;
+}
+
+
+.ui-effects-transfer { border: 2px dotted gray; }
 
 .fishing-hole {
 	position: relative;
@@ -384,19 +510,38 @@ h2.headline {
 }
 
 .fishing-hole .hole {
-	background-image: url('images/fishing-hole.png');
+/*	background-image: url('images/fishing-hole.png');
 	background-size: 100px;
 	background-repeat: no-repeat;
     width: 100px;
     height: 17px;
     position: absolute;
     bottom: 20px;
-    left: 41px;
+    left: 41px; */
 }
 
 .fishing-hole .hole .value {
 	position: relative;
+	opacity: 0;
+	top: 100px;
+	margin: 0 auto;
+	width: 80px;
 	text-align: center;
+	font-size: 24px;
+	font-weight: 800;
+}
+
+.fishing-hole .hole .value span.plus {
+	font-size: 12px;
+	position: relative;
+	top: -2px;
+	left: -3px;
+}
+
+.fishing-hole .hole .value span.dollar {
+	font-size: 18px;
+	position: relative;
+	font-weight: 800;
 }
 
 .answers label {
