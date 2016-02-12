@@ -13,35 +13,27 @@ function displayComment(aComment){
 function updateMoneyTotal(aFish, aFishLanded){
 	if (aFishLanded.fishLanded){
 		totalMoney += aFish.money;
-		$(".money .value").text(totalMoney).animate({
+
+		
+		//$(".hole .value").hide().text(aFish.money).delay(300).fadeIn(1000).delay(1000).fadeOut(700);		
+
+		$(".hole .value").removeAttr('style').html('<span class="plus">+</span><span class="dollar">$</span>' + aFish.money).delay(300).animate({
+			opacity: 1,
+			top: "80"
+		}, 500, "easeOutBack").delay(400)
+		.animate ({
+			opacity: 0,
+			top: "-100",
+			left: "400"
+		}, 700)
+		//.effect( "transfer", { to: $( ".money .value" ) }, { duration: 1000, queue: false} )
+
+		$(".money .value").text(totalMoney).delay(1600).animate({
 			color: "#0084ff"
 			}, 500)
 			.animate({
 				color: "#eee"        
 			}, 2000);
-		
-		//$(".hole .value").hide().text(aFish.money).delay(300).fadeIn(1000).delay(1000).fadeOut(700);		
-
-		$(".hole .value").html('<span class="plus">+</span><span class="dollar">$</span>' + aFish.money).delay(500).animate({
-			opacity: 1,
-			top: "80"
-		}, 1000, "easeOutBack")
-		.effect( "transfer", { to: $( ".money .value" ) }, 1000 );
- 
-
- 
- 
-var i = 1 - $( "div" ).index( this );
-$( this ).effect( "transfer", { to: $( "div" ).eq( i ) }, 1000 );
-		
-		// $(".hole .value").html('<span class="plus">+</span><span class="dollar">$</span>' + aFish.money).delay(500).animate({
-			// opacity: 1,
-			// top: "80"
-		// }, 1000, "easeOutBack")
-		// .animate({
-			// opacity: 0,
-			// top: "100"
-		// }, 1000, "easeInBack");
 		
 	}
 }
@@ -59,51 +51,65 @@ function displayCast(aFish, aCast){
 	// add a new one
 	$(".shit .fish-swim-here").prepend('<div class="fish '+ aFish.sizeName +' '+ aFish.type +'" ></div>');
 	
-	if (aCast.bite){
-		$("#CastButton").prop("disabled", true);
-		$("#SetHookButton").prop("disabled", false);
-		$("#ReelInButton").prop("disabled", true);
-		$(".bites .value").text(biteCount);	
-		
-		$(".shit .fish-swim-here .fish").addClass("bite");
+	// do event stuff if an event was triggered. if not, the regular fish catching process carries on.
+	if (aFish.eventTrigger){
 
-		$(".shit .line").animate({
-			opacity: 1,		
-			height: "+=45"
-		}, 500);
+		var anEventFactory = new EventFactory();
+		var anEvent = anEventFactory.createEvent();	
+		console.log(anEvent);
 		
-		$(".shit .fish-swim-here .fish").animate({
-			left: "+=50"
-		}, 500);
+		eventDisplay(anEvent);
 		
-		$(".status .value").text("You got a bite!");
+		return;
 		
 	} else {
-		$("#CastButton").prop("disabled", false);
-		$("#SetHookButton").prop("disabled", true);
-		$("#ReelInButton").prop("disabled", true);
-		$(".status .value").text("No bites. Cast again.");	
+	
+		if (aCast.bite){
+			$("#CastButton").prop("disabled", true);
+			$("#SetHookButton").prop("disabled", false);
+			$("#ReelInButton").prop("disabled", true);
+			$(".bites .value").text(biteCount);	
+			
+			$(".shit .fish-swim-here .fish").addClass("bite");
 
-		$(".shit .line").animate({
+			$(".shit .line").animate({
+				opacity: 1,		
 				height: "+=45"
-			}, 500)
-			.animate({
-				height: "-=45",
-			}, 500);		
-				
-		
-		$('.shit .fish-swim-here .fish').animate({
+			}, 500);
+			
+			$(".shit .fish-swim-here .fish").animate({
 				left: "+=50"
-			}, 500)
-			.animate({
-				left: "+=50",
-				opacity: 0
-			}, 500);		
-		
-		//$(".shit .fish-swim-here .fish").remove();
-		$('.casts-list').prepend('<div><span>cast #' + castCount + ': </span>You did not get a bite</div>')		
+			}, 500);
+			
+			$(".status .value").text("You got a bite!");
+			
+		} else {
+			$("#CastButton").prop("disabled", false);
+			$("#SetHookButton").prop("disabled", true);
+			$("#ReelInButton").prop("disabled", true);
+			$(".status .value").text("No bites. Cast again.");	
+
+			$(".shit .line").animate({
+					height: "+=45",
+					opacity: 1
+				}, 500)
+				.animate({
+					height: "-=45",
+				}, 500);		
+					
+			
+			$('.shit .fish-swim-here .fish').animate({
+					left: "+=50"
+				}, 500)
+				.animate({
+					left: "+=50",
+					opacity: 0
+				}, 500);		
+			
+			//$(".shit .fish-swim-here .fish").remove();
+			$('.casts-list').prepend('<div><span>cast #' + castCount + ': </span>You did not get a bite</div>')		
+		}
 	}
-		
 }
 
 function displaySetHook(aFish, aSetHook){ 

@@ -61,6 +61,9 @@ $(document).ready(function() {
 		console.log(aCast);
 		
 		castCount++;		
+
+
+		
 		
 		displayCast(aFish, aCast);
 				

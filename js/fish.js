@@ -5,6 +5,7 @@ function Fish(options) {
 	this.gender = options.gender;
 	this.genderPronoun = options.genderPronoun;
 	this.money = options.money;
+	this.eventTrigger = options.eventTrigger;
 } 
 
 /*

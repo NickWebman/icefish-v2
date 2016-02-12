@@ -4,10 +4,16 @@ function FishFactory() {}
 FishFactory.prototype.createFish = function createAFish() {
 
 	var fishTypeMath = Math.floor((Math.random() * 100) + 1);
+	var eventTriggerMath = Math.floor((Math.random() * 100) + 1);	
 	var fishSizeMath = 0;
 	var fishTypeMoneyModifier = 1;
 	var fishMoney = 0;
 
+	function getEventTrigger (){
+		if (eventTriggerMath >= 50){
+			return true;
+		}
+	}
 
 	function getFishType() {
 		if (fishTypeMath >= 100) {
@@ -139,7 +145,8 @@ FishFactory.prototype.createFish = function createAFish() {
 		type: getFishType(),
 		gender: getFishGender().gender,
 		genderPronoun: getFishGender().genderPronoun,
-		money: getFishMoney().money
+		money: getFishMoney().money,
+		eventTrigger: getEventTrigger()
 	};
 	
 	return new Fish(options);
