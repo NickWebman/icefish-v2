@@ -18,7 +18,6 @@ function keepFishing(){
 
 function Event(options) {
 	this.eventName = options.eventName;
-	
 }
 
 function EventFactory() {}
