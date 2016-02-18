@@ -4,6 +4,7 @@
 
 // All the display and animation shit is in here
 
+
 function displayComment(aComment){
 	$(".fishing-hole .comment").remove();
 	$(".fishing-hole").append('<div class="comment">' + aComment.comment + '</div>');

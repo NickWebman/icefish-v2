@@ -1,6 +1,8 @@
 
 
 
+// stop. you need to fix all this shit. do it right.
+
 
 // this function triggers when an event (special fish) dialogue is completed. It handles messages and resets the playfield, kind of.  
 function keepFishing(){
@@ -10,7 +12,6 @@ function keepFishing(){
 		$("#CastButton").prop("disabled", false);
 		$("#SetHookButton").prop("disabled", true);
 		$("#ReelInButton").prop("disabled", true);
-		$('.casts-list').prepend('<div><span>cast #' + casts + ': </span>'+ eventCastListMessage +' + $ eventXP</div>')				
 	});
 }
 
@@ -49,7 +50,7 @@ EventFactory.prototype.createEvent = function createAnEvent() {
 	switch (getEventName()) {
 		case "pregnant":
 			
-			$(".level-message .value").html("<span class='special'>This fish seems different...</span><div class='inner'>As you unhook the fish and open the livewell, she turns to you and pleads: \"Sir, I happen to be very pregnant. Are you sure you want to murder me and my babies?\" </div><div class='answers'><label><input type='radio' name='pregnant' value='a'>Ok. I won't eat you.</label><label><input type='radio' name='pregnant' value='b'>Meh. I'm still going to eat you.</label><label><input type='radio' name='pregnant' value='c'>Stab her</div></label>");
+			$(".level-message .value").html("<span class='special'>This fish seems different...</span><div class='inner'>As you unhook the fish and open the livewell, she turns to you and pleads: \"Sir, I happen to be very pregnant. Are you sure you want to murder a mother and her babies?\" </div><div class='answers'><label><input type='radio' name='pregnant' value='a'>Ok. I won't eat you.</label><label><input type='radio' name='pregnant' value='b'>Meh. I'm still going to eat you.</label><label><input type='radio' name='pregnant' value='c'>Stab her</div></label>");
 			$(".level-message .value").show("slow");
 
 			$(".answers input").click(function(){
@@ -60,8 +61,8 @@ EventFactory.prototype.createEvent = function createAnEvent() {
 					$(".answers input").prop("disabled", true);
 					$(".answers input").not(this).addClass("disabled");								
 					//eventXp = 80;
-					eventCastListMessage = "You caught a pregnant fish. You threw her back because you're a cool person.";
-
+					eventCastListMessage = "You caught a pregnant fish. You threw her back because you're cool.";
+					$('.casts-list').prepend('<div><span>cast #' + castCount + ': </span>' + eventCastListMessage + '</div>');		
 					
 				} else if ($(this).val() == "b"){
 					$(".status .value").html("You sit the fish down and explain the concept of the food chain. When the fish responds \"That's cool. Where am I on the food chain?\", you look her in the eye and promptly bite into her face. <input id='KeepFishingButton' type='submit' class='button' value='Continue fishing'>");							
@@ -71,16 +72,17 @@ EventFactory.prototype.createEvent = function createAnEvent() {
 					$(".answers input").not(this).addClass("disabled");								
 					//eventXp = 80;							
 					eventCastListMessage = "You caught a pregnant fish. You explained the food chain and then ate her and her babies."
-
+					$('.casts-list').prepend('<div><span>cast #' + castCount + ': </span>' + eventCastListMessage + '</div>');		
 					
 				} else if ($(this).val() == "c"){
-					$(".status .value").html("Why would you do that? No, seriously. Are you OK? <input id='KeepFishingButton' type='submit' class='button' value='Continue fishing'>");							
+					$(".status .value").html("Why would you do that? Are you OK? <input id='KeepFishingButton' type='submit' class='button' value='Continue fishing'>");							
 					$(".status .value").hide().show("slow");	
 					$(".status .value input").show(1000).css('display', 'block');
 					$(".answers input").prop("disabled", true);									
 					$(".answers input").not(this).addClass("disabled");								
 					//eventXp = -50;
 					eventCastListMessage = "You caught a pregnant fish. You chose to stab her for no reason. This is why nobody likes you.";			
+					$('.casts-list').prepend('<div><span>cast #' + castCount + ': </span>' + eventCastListMessage + '</div>');		
 				}
 
 			//addTraits();
@@ -97,13 +99,14 @@ EventFactory.prototype.createEvent = function createAnEvent() {
 
 			$(".answers input").click(function(){
 				if ($(this).val() == "a"){
-					$(".status .value").html('"Oh cool. I have a drinking problem, too.", she responds as she retrieves a bottle marked "xxx" from her purse (this mermaid has a purse). The two of you sit down, share drinks, and tell tales of your polarizing worlds. Now laughing, you meet eachother\'s gaze and sheepishly smile. As passion takes over, you resign to the soothing effects of whiskey, and dive into mermaid vagina. <p>Although mermaid boobs are pretty great, their lower-half is more fish than human. In other words, you stuck your penis in a fish vagina.</p> <p>You finish anyway.</p> <input id="KeepFishingButton" type="submit" class="button" value="Continue fishing">');
+					$(".status .value").html('"Oh cool. I have a drinking problem, too.", she responds as she produces a bottle marked "xxx". You sit down, share drinks, and tell tales of two polarizing worlds. Now laughing, you meet eachother\'s gaze and sheepishly smile. As passion takes over, you resign to the tranquilizing effects of whiskey and engage in interspecies intercourse. <p>Although mermaid boobs are pretty great, their lower-half is more fish than human. In other words, you stuck your penis in fish vagina.</p> <p>You focus on her upper-half and finish anyway.</p> <input id="KeepFishingButton" type="submit" class="button" value="Continue fishing">');
 					$(".status .value").hide().show("slow");			
 					$(".status .value input").show(1000).css('display', 'block');
 					$(".answers input").prop("disabled", true);
 					$(".answers input").not(this).addClass("disabled");								
 					//eventXp = 80;
-					eventCastListMessage = "You caught a mermaid, got drunk with her, and had weird mermaid sex.";
+					eventCastListMessage = "You caught a mermaid, got drunk, and had weird mermaid sex.";
+					$('.casts-list').prepend('<div><span>cast #' + castCount + ': </span>' + eventCastListMessage + '</div>');		
 
 					
 				} else if ($(this).val() == "b"){
@@ -114,18 +117,18 @@ EventFactory.prototype.createEvent = function createAnEvent() {
 					$(".answers input").not(this).addClass("disabled");								
 					//eventXp = 80;							
 					eventCastListMessage = "You caught a mermaid who convinced you she could grant wishes. She couldn't."
-
+					$('.casts-list').prepend('<div><span>cast #' + castCount + ': </span>' + eventCastListMessage + '</div>');		
 					$(".gullible .reasons").append('<span>  </span>');
 					
 				} else if ($(this).val() == "c"){
-					$(".status .value").html('"Mmmm ok big boy, but you must promise to keep your eyes shut, or else you\'ll turn into a merman", she responds flirtatiously. With a lack of knowledge on interspecies relations, you fear something\'s awry, yet don\'t know enough to dispute her claim. It\'s been a slow year, so you close your eyes and wish for the best. <p>It\'s cold and it\'s weird, but you finish anyway. You finally look down to find a catfish latched onto your dong. Shame sinks in as you quickly realize you\'ve been had.</p> <input id="KeepFishingButton" type="submit" class="button" value="Continue fishing">');							
+					$(".status .value").html('"Mmmm ok baby, but you must promise to keep your eyes shut, or else you\'ll turn into a merman", she responds flirtatiously. With a lack of knowledge on interspecies relations, you fear something\'s awry, yet don\'t know enough to dispute her claim. It\'s been a slow year, so you close your eyes and wish for the best. <p>It\'s cold and it\'s weird, but you finish anyway. You finally look down to find a catfish latched onto your dong. Shame sinks in as you quickly realize it was all a just sexy scheme to <span class="special">steal $100</span>.</p> <input id="KeepFishingButton" type="submit" class="button" value="Continue fishing">');							
 					$(".status .value").hide().show("slow");
 					$(".status .value input").show(1000).css('display', 'block');
 					$(".answers input").prop("disabled", true);									
 					$(".answers input").not(this).addClass("disabled");								
 					//eventXp = -50;
-					eventCastListMessage = "Wow. OK. So, you accidentally banged a fish...";
-
+					eventCastListMessage = "You accidentally had sex with a fish.";
+					$('.casts-list').prepend('<div><span>cast #' + castCount + ': </span>' + eventCastListMessage + '</div>');		
 				}
 				
 				//addTraits();
@@ -156,176 +159,3 @@ function eventDisplay(anEvent){
 	console.log("another" + anEvent.eventName)
 }
 
-
-
-
-// function Event(aFish) {
-	
-	// $("#ReelInButton").prop("disabled", true);	
-	
-
-	
-	// var options = {
-		// eventName:
-	
-// }
-
-// if (event){
-	
-
-	
-
-	
-	
-
-	
-	
-	//eventName = "mermaid";
-	
-	// switch (eventName) {
-		// case "pregnant":
-			
-			// $(".level-message .value").html("<span class='special'>This fish seems different...</span><div class='inner'>As you unhook the fish and open the livewell, she turns to you and pleads: \"Sir, I happen to be very pregnant. Are you sure you want to murder me and my babies?\" </div><div class='answers'><label><input type='radio' name='pregnant' value='a'>Ok. I won't eat you.</label><label><input type='radio' name='pregnant' value='b'>Meh. I'm still going to eat you.</label><label><input type='radio' name='pregnant' value='c'>Stab her</div></label>");
-			// $(".level-message .value").show("slow");
-
-			// $(".answers input").click(function(){
-				// if ($(this).val() == "a"){
-					// $(".status .value").html('That was nice of you <input id="KeepFishingButton" type="submit" class="button" value="Continue fishing">');
-					// $(".status .value").hide().show("slow");
-					// $(".status .value input").show(1000).css('display', 'block');
-					// $(".answers input").prop("disabled", true);
-					// $(".answers input").not(this).addClass("disabled");								
-					// eventXp = 80;
-					// eventCastListMessage = "You caught a pregnant fish. You threw her back because you're a cool person.";
-					// kindPoints += 1;
-					
-				// } else if ($(this).val() == "b"){
-					// $(".status .value").html("You sit the fish down and explain the concept of the food chain. When the fish responds \"That's cool. Where am I on the food chain?\", you look her in the eye and promptly bite into her face. <input id='KeepFishingButton' type='submit' class='button' value='Continue fishing'>");							
-					// $(".status .value").hide().show("slow");	
-					// $(".status .value input").show(1000).css('display', 'block');
-					// $(".answers input").prop("disabled", true);									
-					// $(".answers input").not(this).addClass("disabled");								
-					// eventXp = 80;							
-					// eventCastListMessage = "You caught a pregnant fish. You explained the food chain and then ate her and her babies."
-					// coldBloodedPoints += 1;
-					// realistPoints += 1;							
-					// hunger += -10;
-					
-				// } else if ($(this).val() == "c"){
-					// $(".status .value").html("Why would you do that? Are you OK? <input id='KeepFishingButton' type='submit' class='button' value='Continue fishing'>");							
-					// $(".status .value").hide().show("slow");	
-					// $(".status .value input").show(1000).css('display', 'block');
-					// $(".answers input").prop("disabled", true);									
-					// $(".answers input").not(this).addClass("disabled");								
-					// eventXp = -50;
-					// eventCastListMessage = "You caught a pregnant fish. You chose to stab her for no reason. This is why nobody likes you.";			
-					// mentallyIllPoints += 1;
-					// coldBloodedPoints += 1;							
-					// unstablePoints += 1;
-				// }
-
-			// addTraits();
-			// keepFishing();						
-				
-			// });
-
-			// break;
-		
-		// case "mermaid":
-				
-			// $(".level-message .value").html("<span class='special'>This fish seems different...</span><div class='inner'>Much to your surprise, a beautiful mermaid emerges from the fishing hole. Disoriented, she pleads, \"If you let me go, I will grant you one wish\". Intrigued, you respond... </div><div class='answers'><label><input type='radio' name='mermaid' value='a'>I wish for whiskey.</label><label><input type='radio' name='mermaid' value='b'>I wish for world peace.</label><label><input type='radio' name='mermaid' value='c'>I wish we would bang.</div></label>");
-			// $(".level-message .value").show("slow");
-
-			// $(".answers input").click(function(){
-				// if ($(this).val() == "a"){
-					// $(".status .value").html('"Oh cool. I have a drinking problem, too.", she responds as she retrieves a bottle marked "xxx" from her purse (this mermaid has a purse). The two of you sit down, share drinks, and tell tales of your polarizing worlds. Now laughing, you meet eachother\'s gaze and sheepishly smile. As passion takes over, you resign to the soothing effects of whiskey, and dive into mermaid vagina. <p>Although mermaid boobs are pretty great, their lower-half is more fish than human. In other words, you stuck your penis in a fish vagina.</p> <p>You finish anyway.</p> <input id="KeepFishingButton" type="submit" class="button" value="Continue fishing">');
-					// $(".status .value").hide().show("slow");			
-					// $(".status .value input").show(1000).css('display', 'block');
-					// $(".answers input").prop("disabled", true);
-					// $(".answers input").not(this).addClass("disabled");								
-					// eventXp = 80;
-					// eventCastListMessage = "You caught a mermaid, got drunk with her, and had weird mermaid sex.";
-					// kindPoints += 1;
-					// drunkPoints += 1;
-					// sexyPoints += 1;
-					// morale += 1;
-					
-				// } else if ($(this).val() == "b"){
-					// $(".status .value").html('In a pretentious tone, you proudly announce "I wish for world peace". <p>Smirking, she says "I\'m a mermaid, not a genie. Idiot.", and hurriedly swims away.</p>  <input id="KeepFishingButton" type="submit" class="button" value="Continue fishing">');							
-					// $(".status .value").hide().show("slow");
-					// $(".status .value input").show(1000).css('display', 'block');
-					// $(".answers input").prop("disabled", true);									
-					// $(".answers input").not(this).addClass("disabled");								
-					// eventXp = 80;							
-					// eventCastListMessage = "You caught a mermaid who convinced you she could grant wishes. She couldn't."
-					// gulliblePoints += 1;
-					// dumbPoints += 1;
-					// $(".gullible .reasons").append('<span>  </span>');
-					
-				// } else if ($(this).val() == "c"){
-					// $(".status .value").html('"Mmmm ok big boy, but you must promise to keep your eyes shut, or else you\'ll turn into a merman", she responds flirtatiously. With a lack of knowledge on interspecies relations, you fear something\'s awry, yet don\'t know enough to dispute her claim. It\'s been a slow year, so you close your eyes and wish for the best. <p>It\'s cold and it\'s weird, but you finish anyway. You finally look down to find a catfish latched onto your dong. Shame sinks in as you quickly realize you\'ve been had.</p> <input id="KeepFishingButton" type="submit" class="button" value="Continue fishing">');							
-					// $(".status .value").hide().show("slow");
-					// $(".status .value input").show(1000).css('display', 'block');
-					// $(".answers input").prop("disabled", true);									
-					// $(".answers input").not(this).addClass("disabled");								
-					// eventXp = -50;
-					// eventCastListMessage = "Wow. OK. So, you accidentally banged a fish...";
-					// despicablePoints = despicablePoints + 1;
-					// pervertPoints = pervertPoints + 1;
-				// }
-				
-				// addTraits();
-				// keepFishing();
-			
-			// });				
-			
-			// break;
-
-		// case "fall-in":
-				
-			// $(".level-message .value").html("<span class='special'>This fish seems different...</span><div class='inner'>Blah blah: \"blahblahblah\" </div><div class='answers'><label><input type='radio' name='pregnant' value='a'>Ok. I won't eat you.</label><label><input type='radio' name='pregnant' value='b'>Meh. I'm still going to eat you.</label><label><input type='radio' name='pregnant' value='c'>Stab her</div></label>");
-			// $(".level-message .value").show("slow");
-
-			// $(".answers input").click(function(){
-				// if ($(this).val() == "a"){
-					// $(".status .value").html('That was nice of you <input id="KeepFishingButton" type="submit" class="button" value="Continue fishing">');
-					// $(".status .value").hide().show("slow");						
-					// $(".status .value input").show(1000).css('display', 'block');
-					// $(".answers input").prop("disabled", true);
-					// $(".answers input").not(this).addClass("disabled");								
-					// eventXp = 80;
-					// eventCastListMessage = "You caught a pregnant fish. You threw her back because you're a cool person.";
-					// kindPoints = kindPoints + 1;
-					// morale = morale + 1;
-					
-				// } else if ($(this).val() == "b"){
-					// $(".status .value").html("You sit the fish down and explain the concept of the food chain. When the fish responds \"That's cool. Where am I on the food chain?\", you look her in the eye and promptly bite into her face. <input id='KeepFishingButton' type='submit' class='button' value='Continue fishing'>");							
-					// $(".status .value").hide().show("slow");
-					// $(".status .value input").show(1000).css('display', 'block');
-					// $(".answers input").prop("disabled", true);									
-					// $(".answers input").not(this).addClass("disabled");								
-					// eventXp = 80;							
-					// eventCastListMessage = "You caught a pregnant fish. You explained the food chain and then ate her and her babies."
-					// coldBloodedPoints = coldBloodedPoints + 1;
-					// hunger = hunger + -10;
-					// morale = morale + 1;
-					
-				// } else if ($(this).val() == "c"){
-					// $(".status .value").html("Why would you do that? No, seriously... <input id='KeepFishingButton' type='submit' class='button' value='Continue fishing'>");							
-					// $(".status .value").hide().show("slow");
-					// $(".status .value input").show(1000).css('display', 'block');
-					// $(".answers input").prop("disabled", true);									
-					// $(".answers input").not(this).addClass("disabled");								
-					// eventXp = -50;
-					// eventCastListMessage = "You caught a pregnant fish. You chose to stab her for no reason. This is why nobody likes you.";				
-					// mentallyIllPoints = mentallyIllPoints + 1;
-					// coldBloodedPoints = coldBloodedPoints + 1;							
-				// }
-				
-				// addTraits();
-				// keepFishing();
-			
-			// });				
-			
-			// break;
-	// }

@@ -1,4 +1,6 @@
-
+.blue {
+	color: #0084ff;
+}
 
 .shit {
 	position: relative;
@@ -7,6 +9,11 @@
 .level .value, .money .value {
 	font-weight: 800;
 }
+
+span.special {
+	
+	font-weight: 800;
+} 
 
 .shit .line {
 	width: 1px;
@@ -240,6 +247,8 @@ h2.headline {
 	border-right: 1px dotted #666;
 }
 
+
+
 .status-bar div {
 	float: left;
 	padding: 0 15px;
@@ -267,6 +276,7 @@ h2.headline {
 .controls input {
 	margin-right: 2px;
 	color: #0084ff;
+    display: inline-block;	
 }
 
 .controls input:disabled {

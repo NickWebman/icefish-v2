@@ -62,9 +62,6 @@ $(document).ready(function() {
 		
 		castCount++;		
 
-
-		
-		
 		displayCast(aFish, aCast);
 				
 	});
