@@ -8,46 +8,34 @@ var fishOnCount = 0;
 var fishLostCount = 0;
 var fishLandedCount = 0;
 var totalMoney = 0;
+var totalMoneyAllTime = 0;
 
 
 $(document).ready(function() {
 
+	// set defaults
 	$("#CastButton").prop("disabled", false);
 	$("#SetHookButton").prop("disabled", true);
 	$("#ReelInButton").prop("disabled", true);
 
 	$("h2").click(function(){
 		$("#Name").val("Nick");
-		$("#Age").val(32);
+		$("#Age").val(35);
 		$("#Weight").val(215);		
 	});	
-
-	// set defaults for buttons
-	/*$("#CastButton").prop("disabled", false);
-	$("#SetHookButton").prop("disabled", true);
-	$("#ReelInButton").prop("disabled", true);	*/		
 	
 	// start screen collects input player data
-	
-	/*
-	
 	if (!$("#StartScreenContainer").hasClass("done")){
 		$("#StartScreenContainer").show("slow");
 		$("#StartScreenStuff").click(function(){
 			$("#StartScreenContainer").addClass("done").hide("slow");		
-			var name = $("#Name").val();
-			var weight = $("#Weight").val();
-			var age = $("#Age").val();
-			var gender = $("#Gender").val();				
 	
-			var player1 = new Player();
-			player1.init(name, weight, age, gender);
-						
-			console.log('Player1 name', player1.name);
-			console.log(player1);
-
+			var aPlayerFactory = new PlayerFactory();
+				aPlayer = aPlayerFactory.createPlayer();
+					console.log(aPlayer);
+					displayPlayer(aPlayer);
 		});
-	};		*/
+	};		
 	
 
 	// cast
@@ -86,38 +74,11 @@ $(document).ready(function() {
 		displayComment(aComment);
 		displayFishLanded(aFish, aFishLanded);
 		updateMoneyTotal(aFish, aFishLanded);
+		updatePlayerLevel(aPlayer);
 		
 	});
 		
-	
-
-	
-	
-
-
-/*
-	
-	var player1 = new Player();
-	player1.init("nick", 100, 15, "male");
-	
-	var player2 = new Player();
-	player2.init("Luke", 100, 15, "male");
-
-	console.log('Player1 name', player1.name);
-	console.log('Player2 name', player2.name);
-	console.log('Player1 name', player1.name);
-	
-	console.log("player1 stats", player1.stats());
-	
-	player1.name = "poop";
-
-	console.log('Player1 name', player1.name);
-
-*/
-
-
-
-	
+		
 });
 
 

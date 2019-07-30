@@ -10,7 +10,7 @@ FishFactory.prototype.createFish = function createAFish() {
 	var fishMoney = 0;
 
 	function getEventTrigger (){
-		if (eventTriggerMath >= 50){
+		if (eventTriggerMath >= 95){
 			return true;
 		}
 	}

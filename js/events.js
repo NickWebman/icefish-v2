@@ -98,7 +98,7 @@ EventFactory.prototype.createEvent = function createAnEvent() {
 
 			$(".answers input").click(function(){
 				if ($(this).val() == "a"){
-					$(".status .value").html('"Oh cool. I have a drinking problem, too.", she responds as she produces a bottle marked "xxx". You sit down, share drinks, and tell tales of two polarizing worlds. Now laughing, you meet eachother\'s gaze and sheepishly smile. As passion takes over, you resign to the tranquilizing effects of whiskey and engage in interspecies intercourse. <p>Although mermaid boobs are pretty great, their lower-half is more fish than human. In other words, you stuck your penis in fish vagina.</p> <p>You focus on her upper-half and finish anyway.</p> <input id="KeepFishingButton" type="submit" class="button" value="Continue fishing">');
+					$(".status .value").html('"Oh cool. I have a drinking problem, too.", she responds as she produces a bottle marked "xxx". You sit down, share drinks, and tell tales of two polarizing worlds. Now laughing, you meet eachother\'s gaze and sheepishly smile. As passion takes over, you resign to the tranquilizing effects of whiskey and engage in interspecies intercourse. <p>Although mermaid boobs are pretty great, their lower-half is more fish than human. In other words, fish vagina.</p> <p>You focus on her upper-half and finish anyway.</p> <input id="KeepFishingButton" type="submit" class="button" value="Continue fishing">');
 					$(".status .value").hide().show("slow");			
 					$(".status .value input").show(1000).css('display', 'block');
 					$(".answers input").prop("disabled", true);
@@ -120,7 +120,7 @@ EventFactory.prototype.createEvent = function createAnEvent() {
 					$(".gullible .reasons").append('<span>  </span>');
 					
 				} else if ($(this).val() == "c"){
-					$(".status .value").html('"Mmmm ok baby, but you must promise to keep your eyes shut, or else you\'ll turn into a merman", she responds flirtatiously. With a lack of knowledge on interspecies relations, you fear something\'s awry, yet don\'t know enough to dispute her claim. It\'s been a slow year, so you close your eyes and wish for the best. <p>It\'s cold and it\'s weird, but you finish anyway. You finally look down to find a catfish latched onto your dong. Shame sinks in as you quickly realize it was all a just sexy scheme to <span class="special">steal $100</span>.</p> <input id="KeepFishingButton" type="submit" class="button" value="Continue fishing">');							
+					$(".status .value").html('"Mmmm ok baby, but you must promise to keep your eyes shut, or else you\'ll turn into a merman", she responds flirtatiously. With a lack of knowledge on interspecies relations, you fear something\'s awry. But it\'s been a slow year, so you close your eyes and wish for the best. <p>It\'s cold and weird, but you finish anyway. You finally look down to find a catfish latched onto your dong. Shame sinks in as you quickly realize it was all a just sexy scheme to <span class="special">steal $100</span>.</p> <input id="KeepFishingButton" type="submit" class="button" value="Continue fishing">');							
 					$(".status .value").hide().show("slow");
 					$(".status .value input").show(1000).css('display', 'block');
 					$(".answers input").prop("disabled", true);									
